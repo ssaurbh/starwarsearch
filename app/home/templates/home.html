@@ -1,0 +1,19 @@
+<div class="myul" id="homePage" ng-controller="HomeCtrl" ng-init="getPlanets()">
+
+<div class="bar">
+			
+			<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+			<button ng-disabled="page===1" style="margin-top: 10px;margin-right: 0px;margin-bottom: 0px" ng-click="prevBtnClicked()">
+        Previous
+    </button>
+     {{page}}
+    <button ng-click="nextBtnClicked()">
+        Next
+    </button>
+</div>
+
+        <div class="spinner" style="margin-left: 40%" ng-show="loading"></div>
+
+		<planets></planets>
+	
+</div>

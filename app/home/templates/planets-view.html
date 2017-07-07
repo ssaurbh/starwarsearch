@@ -1,0 +1,47 @@
+<ul>
+			
+			<li ng-repeat="i in planets | searchFor:searchString">
+
+			<div ng-style= "set_style(i.population,$index)" style="height: auto;margin-left: 30%;background-color: white;border:10px solid #5c9bb7;padding:5px">
+
+			    <table>
+					  <tr>
+					    <th style="padding: 5px">Name</th>
+					    <th style="padding: 5px">Population</th>
+					     <th style="padding: 5px">Climate</th>
+					      <th style="padding: 5px">Water</th>
+					  </tr>
+					  <tr>
+					    <td style="font-weight: bold">{{i.name}}</td>
+					    <td>{{i.population}}</td>
+					    <td>{{i.climate}}</td>
+					    <td>{{i.water}}</td>
+					  </tr>
+					  
+				</table>
+				<hr>
+				
+				<a href ng-click="showMore($index)">{{i.linkText}}</a>
+				<a style="margin-left: 10px" href ng-click="showFilms($index)">Films</a>
+
+				<table ng-if= "ifMoreSelected($index)">
+					  <tr>
+					    <th style="padding: 5px">Diameter</th>
+					    <th style="padding: 5px">Rotation</th>
+					     <th style="padding: 5px" >Terrain</th>
+				
+					  </tr>
+					  <tr>			
+					    <td>{{i.diameter}}</td>
+					    <td>{{i.rotation}}</td>
+					    <td>{{i.terrain}}</td>
+					  </tr>
+					  
+				</table>
+					  		
+
+			</div>
+
+				
+			</li>
+		</ul>

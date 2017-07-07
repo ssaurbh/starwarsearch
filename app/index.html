@@ -1,0 +1,106 @@
+<!doctype html>
+<META Http-Equiv="Cache-Control" Content="no-cache">
+<META Http-Equiv="Pragma" Content="no-cache">
+<META Http-Equiv="Expires" Content="0">
+<html ng-app="SWSearchApp">
+<head>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<title>Login App</title>
+<link rel="stylesheet" href="css/custom.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>		
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body style="background: linear-gradient(#777,rgba(255,255,255,.15));" ng-controller="ParentController">
+	
+	
+	
+<div class="container">
+
+
+		<div ng-if="currentUser">
+			<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">SW Search</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a>Home</a></li>
+ 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href ng-click="logout()"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+		</div>
+
+
+<div ng-if="!currentUser">
+			<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">SW Search</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a>Login</a></li>
+ 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+  
+      <li><a><span class="glyphicon glyphicon-align-justify"></span></a></li>
+    </ul>
+  </div>
+</nav>
+
+
+		</div>
+
+		<div ui-view></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="common/js/libs/angular-ui-router.min.js"></script>
+	<script src="common/js/libs/ui-bootstrap-tpls-0.11.2.min.js"></script>
+	<script src="app.js"></script>
+	<script src="routing/routing.js"></script>
+	<script src="common/js/globalFunctions.js"></script>
+
+	<!--MODULE -->
+     <script src="home/home.module.js"></script>
+     <script src="login/login.module.js"></script>
+
+
+
+	<!--FACTORY -->
+	<script src="login/services/authInterceptor.js"></script>
+	
+
+	<!--CONTROLLERS -->
+	<script src="controllers/parentController.js"></script>
+	<script src="login/controllers/login.js"></script>
+	<script src="home/controllers/homeController.js"></script>
+
+	<!--SERVICES -->
+	<script src="login/services/auth.js"></script>
+	<script src="common/services/session.js"></script>
+	<script src="home/services/planetService.js"></script>
+
+	<!--DIRECTIVES -->
+	<script src="home/directives/planet.directive.js"></script>
+
+
+</body>
+<footer class="footer">
+  <div class="container text-center">
+    <a><i class="fa fa-facebook"></i></a>
+    <a><i class="fa fa-twitter"></i></a>
+    <a><i class="fa fa-linkedin"></i></a>
+    <a><i class="fa fa-google-plus"></i></a>
+    <a><i class="fa fa-skype"></i></a>
+  </div>
+</footer>
+
+</html>
