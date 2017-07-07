@@ -1,15 +1,17 @@
 'use strict';
 var myapp = angular.module('SWSearchApp');
 
-myapp.controller('HomeCtrl', ['$scope',  'PlanetService', function($scope,planetService){
+myapp.controller('HomeCtrl', ['$scope', '$interval' ,'$window', 'PlanetService', function($scope,$interval,$window,planetService){
 
 var planets = [];
 	$scope.planets = planets;
 	$scope.page =1;
     $scope.loading = true;
+    $scope.searchCounter = 0; 	
+	$scope.disableSearch = false;
     var preCachedData = {};
    
-	$scope.getPlanets = function(){
+	$scope.getPlanets = function(){''
 		var results = planetService.getPlanets($scope.page);
 		 results.then(function(data){
 		 	console.log(data);
@@ -118,6 +120,25 @@ var planets = [];
  		 	 }
   		
 	}
+
+	 $scope.searchChanged = function() {
+	  		$scope.searchCounter++;
+	  		console.log($window.sessionStorage["userInfo"]);
+	  		console.log( $scope.searchCounter);
+	  		console.log($window.sessionStorage["userInfo"].username !== 'Luke Skywalker');
+	  		if($window.sessionStorage["userInfo"].username !== 'Luke Skywalker' && $scope.searchCounter > 15) {
+	  			$scope.disableSearch = true;
+	  		}
+	  };
+
+	  // $scope.isPageLoading = function() {
+	  // 	return $scope.loadingData === '';
+	  // }
+
+	  $interval(function(){	 
+	  		$scope.searchCounter = 0; 	
+	  		$scope.disableSearch = false;
+	  }, 60000);
 
 
 	

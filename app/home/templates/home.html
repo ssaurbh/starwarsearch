@@ -2,7 +2,7 @@
 
 <div class="bar">
 			
-			<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+			<input ng-change="searchChanged()" ng-disabled="disableSearch" type="text" ng-model="searchString" placeholder="Enter your search terms" />
 			<button ng-disabled="page===1" style="margin-top: 10px;margin-right: 0px;margin-bottom: 0px" ng-click="prevBtnClicked()">
         Previous
     </button>
